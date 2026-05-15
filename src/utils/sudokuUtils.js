@@ -1,12 +1,12 @@
 import { puzzles } from "./puzzles";    
 
 export const getPuzzleById = (id) => {
-    const puzzleId = puzzles.find((puzzles) => puzzles.id === id)
+    const puzzleId = puzzles.find((puzzle) => puzzle.id === id)
     return puzzleId
 }
 
 export const getRandomPuzzle = (difficulty) =>{
-    const filteredPuzzles = puzzles.filter((puzzles) => puzzles.difficulty === difficulty)
+    const filteredPuzzles = puzzles.filter((puzzle) => puzzle.difficulty === difficulty)
     const randomIndex = getRandomInt(0, filteredPuzzles.length)
     return filteredPuzzles[randomIndex]
 }
@@ -23,7 +23,7 @@ export const createInitialGrid = (puzzle) =>{
 }
 
 export const isCellFixed = (grid, rowIndex, colIndex) =>{
-    return grid[rowIndex][colIndex] != "0" 
+    return grid[rowIndex][colIndex] !== "0" 
 }
 
 const getRandomInt = (min,max) =>{
