@@ -1,0 +1,33 @@
+import { puzzles } from "./puzzles";    
+
+export const getPuzzleById = (id) => {
+    const puzzleId = puzzles.find((puzzles) => puzzles.id === id)
+    return puzzleId
+}
+
+export const getRandomPuzzle = (difficulty) =>{
+    const filteredPuzzles = puzzles.filter((puzzles) => puzzles.difficulty === difficulty)
+    const randomIndex = getRandomInt(0, filteredPuzzles.length)
+    return filteredPuzzles[randomIndex]
+}
+
+export const createInitialGrid = (puzzle) =>{
+    const puzzleString = puzzle.puzzle
+    const gridArray = []
+    for(let i = 0; i < 81; i += 9){
+        const gridRowString = puzzleString.slice(i, i + 9)
+        const gridRowArray = gridRowString.split('')
+        gridArray.push(gridRowArray)
+    }
+    return gridArray
+}
+
+export const isCellFixed = (grid, rowIndex, colIndex) =>{
+    return grid[rowIndex][colIndex] != "0" 
+}
+
+const getRandomInt = (min,max) =>{
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled)
+}
