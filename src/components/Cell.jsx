@@ -1,4 +1,4 @@
-const Cell = ({cellValue, rowIndex, colIndex}) => {
+const Cell = ({value, rowIndex, colIndex}) => {
     return (
         <div className="sudoku-cell">
             {value === "0" ? "" : value}
