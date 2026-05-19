@@ -1,6 +1,7 @@
+import { isCellFixed } from "../utils/sudokuUtils"
 import Cell from "./Cell"
 
-const SudokuBoard = ({ grid }) => { //react component with big S
+const SudokuBoard = ({ grid, initialGrid, onCellChange }) => { //react component with big S
   const getCellKey = (rowIndex, colIndex) => {
     return `${rowIndex}-${colIndex}`
   }
@@ -12,6 +13,8 @@ const SudokuBoard = ({ grid }) => { //react component with big S
         value={cellValue}
         rowIndex={rowIndex}
         colIndex={colIndex}
+        isFixed={isCellFixed(initialGrid, rowIndex, colIndex)}
+        onCellChange={onCellChange}
       />
     )
   }
