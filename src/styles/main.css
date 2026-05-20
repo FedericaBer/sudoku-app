@@ -35,6 +35,32 @@
   font-family: system-ui, sans-serif;
 }
 
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.start-title {
+  font-size: 64px;
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.difficulty-button {
+  font-size: 24px;
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
 .sudoku-input:disabled {
   color: #000000;
   background: white;

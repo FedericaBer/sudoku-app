@@ -1,14 +1,13 @@
 import SudokuBoard from "./components/Board"
 import { createInitialGrid, getRandomPuzzle } from "./utils/sudokuUtils"
 import { useState } from "react"
+import StartScreen from "./components/StartScreen"
+
 
 const App = () => {
-  const [initialGrid] = useState(() => { //this only runs once because the value useState gets is the initial value in react
-    const randomPuzzle = getRandomPuzzle("medium")
-    return createInitialGrid(randomPuzzle)
-  })
-
-  const [currentGrid, setCurrentGrid] = useState(initialGrid)
+  const [initialGrid, setInitialGrid] = useState(null)
+  const [currentGrid, setCurrentGrid] = useState(null)
+  const [gameStarted, setGameStarted] = useState(false)
 
   const handleCellChange = (rowIndex, colIndex, newValue) => {
     const updatedGrid = currentGrid.map((row) => [...row])
@@ -18,12 +17,29 @@ const App = () => {
     setCurrentGrid(updatedGrid)
   }
 
+  const handleGameStart = (difficulty) =>{
+    console.log(difficulty)
+    const newGrid = createInitialGrid(getRandomPuzzle(difficulty))
+    setInitialGrid(newGrid)
+    setCurrentGrid(newGrid)
+    setGameStarted(true)
+  }
+
   return (
-    <SudokuBoard
-      grid={currentGrid}
-      initialGrid={initialGrid}
-      onCellChange={handleCellChange}
-    />
+    <>
+      {gameStarted === true ? (
+        <SudokuBoard
+          grid = {currentGrid}
+          initialGrid = {initialGrid}
+          onCellChange = {handleCellChange}
+        />
+      ) : ( 
+        <StartScreen
+          onStartGame = {handleGameStart}
+        />
+      )}
+    </>
+    
   )
 }
 
