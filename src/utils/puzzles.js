@@ -1,3 +1,4 @@
+
 export const puzzles = [
   {
     id: 1,
