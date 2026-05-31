@@ -34,6 +34,10 @@
   font-weight: normal;
   font-family: system-ui, sans-serif;
 }
+.sudoku-input:focus{
+  background-color: #eef3ff;
+  caret-color: transparent;
+}
 
 .start-screen {
   min-height: 100vh;
@@ -74,4 +78,27 @@
 
 .thick-bottom {
   border-bottom: 3px solid black;
+}
+
+.popup-backdrop{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.popup-box {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
 }

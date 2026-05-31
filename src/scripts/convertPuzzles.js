@@ -1,6 +1,5 @@
-const csv = require('csv-parser');
-const { resolve } = require('dns');
-const fs = require('fs');
+import csv from "csv-parser"
+import fs from "fs"
 
 const readCsvFile = (filePath) => {
 
@@ -26,7 +25,7 @@ const readCsvFile = (filePath) => {
 
 const countGivenNumbers = (puzzleString) => {
     let countNumbersGiven = 0;
-    for (let i = 0; i < puzzleString.lenght; i++){
+    for (let i = 0; i < puzzleString.length; i++){
         if(puzzleString[i] !== '0') countNumbersGiven++;
     }
     return countNumbersGiven;
@@ -65,14 +64,12 @@ const selectPuzzlesByDifficulty = (puzzleObjects, amountPerDifficulty) =>{
     for (let i = 0; i < puzzleObjects.length; i++) {
         const puzzle = puzzleObjects[i]
         const difficulty = puzzle.difficulty
-
         if (
         selectedPuzzles[difficulty] &&
         selectedPuzzles[difficulty].length < amountPerDifficulty
         ) {
         selectedPuzzles[difficulty].push(puzzle)
         }
-
         if (
         selectedPuzzles.easy.length === amountPerDifficulty &&
         selectedPuzzles.medium.length === amountPerDifficulty &&
