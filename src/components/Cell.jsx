@@ -1,4 +1,4 @@
-const Cell = ({value, rowIndex, colIndex, onCellChange, isFixed}) => {
+const Cell = ({value, cellNotes, notesMode, rowIndex, colIndex, onCellChange, isFixed}) => {
     let className = "sudoku-cell"
 
     const handleInputChange = (event) =>{
@@ -31,17 +31,32 @@ const Cell = ({value, rowIndex, colIndex, onCellChange, isFixed}) => {
         className += " thick-bottom"
     }
 
+    const hasValue = value !== "0"
+    const hasNotes = cellNotes && cellNotes.length > 0
+
     return (
         <div className={className}>
-            <input //creates an input field inside the cell
+            {!hasValue && hasNotes && (
+                <div className="cell-notes">
+                {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((number) => {
+                    return (
+                    <span className="cell-note" key={number}>
+                        {cellNotes.includes(number) ? number : ""}
+                    </span>
+                    )
+                })}
+                </div>
+            )}
+
+            <input
                 className="sudoku-input"
                 value={value === "0" ? "" : value}
                 onChange={handleInputChange}
-                disabled={isFixed} //if isFixed is true, the user cannot edit this input
-                maxLength={1} //prevents the user from typing more than one character.
+                disabled={isFixed}
+                maxLength={1}
             />
-        </div>
+            </div>
   )
 }
 
-export default Cell //so that Board.jsx can use it
+export default Cell

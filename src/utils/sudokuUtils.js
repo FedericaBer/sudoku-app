@@ -22,6 +22,18 @@ export const createInitialGrid = (puzzle) =>{
     return gridArray
 }
 
+export const createEmptyNotesGrid = () => {
+    const gridMatrix = [];
+    for (let i = 0; i<9; i++){
+        const rowArray = [];
+        for (let j = 0;  j < 9; j ++){
+            rowArray.push([]);
+        }
+        gridMatrix.push(rowArray)
+    }
+    return gridMatrix;
+}
+
 export const createGridSolution = (puzzle) =>{
     const puzzleString = puzzle.solution
     const gridArray = []

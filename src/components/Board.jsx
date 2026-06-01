@@ -1,7 +1,7 @@
 import { isCellFixed } from "../utils/sudokuUtils"
 import Cell from "./Cell"
 
-const SudokuBoard = ({ grid, initialGrid, onCellChange }) => { //react component with big S
+const SudokuBoard = ({ grid, initialGrid, notesGrid, notesMode, onCellChange }) => { //react component with big S
   const getCellKey = (rowIndex, colIndex) => {
     return `${rowIndex}-${colIndex}`
   }
@@ -11,6 +11,8 @@ const SudokuBoard = ({ grid, initialGrid, onCellChange }) => { //react component
       <Cell //a new react component with props: value, rowindex, colindex
         key={getCellKey(rowIndex, colIndex)} //this isn't a prop, react uses it internally to know which item is which
         value={cellValue}
+        cellNotes={notesGrid[rowIndex][colIndex]}
+        notesMode={notesMode}
         rowIndex={rowIndex}
         colIndex={colIndex}
         isFixed={isCellFixed(initialGrid, rowIndex, colIndex)}
