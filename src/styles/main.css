@@ -1,5 +1,6 @@
 .sudoku-board {
   width: fit-content;
+  max-width: 95vw;
   margin: 0 auto;
   border: 3px solid black;
 }
@@ -10,8 +11,8 @@
 
 .sudoku-cell {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: min(50px, 10vw);
+  height: min(50px, 10vw);
   border: 1px solid lightgray;
   box-sizing: border-box;
 }
@@ -31,7 +32,7 @@
 }
 
 .cell-note {
-  font-size: 11px;
+  font-size: min(11px, 2.5vw);
   color: gray;
   text-align: center;
   line-height: 1;
@@ -41,6 +42,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto;
+  padding-top: 45px;
 }
 
 .notes-button button {
@@ -88,7 +91,7 @@
   outline: none;
   box-shadow: none;
   text-align: center;
-  font-size: 24px;
+  font-size: min(24px, 7vw);
   box-sizing: border-box;
   color: #57585b;
   font-weight: normal;
