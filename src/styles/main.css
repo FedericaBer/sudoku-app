@@ -91,7 +91,7 @@
   outline: none;
   box-shadow: none;
   text-align: center;
-  font-size: min(24px, 7vw);
+  font-size: clamp(22px, 6vw, 32px);
   box-sizing: border-box;
   color: #57585b;
   font-weight: normal;
