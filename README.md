@@ -2,6 +2,10 @@
 
 A personal ad-free Sudoku web app built with React.
 
+## Live Demo
+
+Play Sudoku: https://sudoku-app-blush.vercel.app/
+
 ## Tech stack
 
 - React
