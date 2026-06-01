@@ -2,7 +2,7 @@
   width: fit-content;
   max-width: 95vw;
   margin: 0 auto;
-  border: 3px solid black;
+  border: clamp(2px, 0.6vw, 3px) solid black;
 }
 
 .sudoku-row {
@@ -141,11 +141,11 @@
 }
 
 .thick-right {
-  border-right: 3px solid black;
+  border-right: clamp(2px, 0.6vw, 3px) solid black;
 }
 
 .thick-bottom {
-  border-bottom: 3px solid black;
+  border-bottom: clamp(2px, 0.6vw, 3px) solid black;
 }
 
 .popup-backdrop{
