@@ -1,18 +1,20 @@
 .sudoku-board {
-  width: fit-content;
-  max-width: 95vw;
+  width: min(450px, 92vw);
+  height: min(450px, 92vw);
   margin: 0 auto;
   border: clamp(2px, 0.6vw, 3px) solid black;
+  box-sizing: border-box;
 }
 
 .sudoku-row {
   display: flex;
+  height: calc(100% / 9);
 }
 
 .sudoku-cell {
   position: relative;
-  width: min(50px, 10vw);
-  height: min(50px, 10vw);
+  width: calc(100% / 9);
+  height: 100%;
   border: 1px solid lightgray;
   box-sizing: border-box;
 }
@@ -91,7 +93,9 @@
   outline: none;
   box-shadow: none;
   text-align: center;
-  font-size: clamp(22px, 6vw, 32px);
+  font-size: clamp(18px, 5vw, 28px);
+  padding: 0;
+  line-height: 1;
   box-sizing: border-box;
   color: #57585b;
   font-weight: normal;
@@ -135,7 +139,7 @@
 
 .sudoku-input:disabled {
   color: #000000;
-  background: white;
+  background: transparent;
   opacity: 1;
   cursor: default;
 }
